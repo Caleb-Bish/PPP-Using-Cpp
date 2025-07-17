@@ -5,16 +5,17 @@
 #include <limits>
 
 
-
 std::vector<double> getDistances() {
     std::vector<double> distances {};
 
     std::cout << "Please enter a sequence of distances between cities along a given route.\n";
 
     for (double readIn; std::cin >> readIn;) {
+        //std::cout << readIn << '\n';
         distances.push_back(readIn);
     }
     return distances;
+
 }
 
 
@@ -28,15 +29,7 @@ int main() {
     double meanDistance {};
 
     distances = getDistances();
-
-
-    while (distances.size() <= 1) {
-        distances = getDistances();
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-
-
+    
     // Initialise maximum and minimum distances.
     maxFound = distances[0];
     minFound = distances[0];
